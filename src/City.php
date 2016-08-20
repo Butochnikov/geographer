@@ -2,6 +2,8 @@
 
 namespace MenaraSolutions\Geographer;
 
+use MenaraSolutions\Geographer\Collections\MemberCollection;
+
 /**
  * Class City
  * @package MenaraSolutions\Geographer
@@ -11,7 +13,7 @@ class City extends Divisible
     /**
      * @var string
      */
-    protected $memberClass = null;
+    protected $memberClass = City::class;
 
     /**
      * @var string
@@ -27,6 +29,25 @@ class City extends Divisible
         'name',
         'latitude' => 'lat',
         'longitude' => 'lng',
-        'population'
+        'population',
+        'parent'
     ];
+
+    /**
+     * @return MemberCollection
+     */
+    public function getCity($name)
+    {
+        return $this->find([
+            'name' => $name
+        ]);
+    }
+
+    /**
+     * @return MemberCollection
+     */
+    public function getCities()
+    {
+        return $this->getMembers();
+    }
 }

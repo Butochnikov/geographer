@@ -25,7 +25,8 @@ class File implements RepositoryInterface
     protected static $paths = [
         Earth::class => 'countries.json',
         Country::class => 'states/code.json',
-        State::class => 'cities/parentCode.json'
+        State::class => 'cities/parentCode.json',
+        City::class => 'cities/parentCode.json'
     ];
 
     /**
